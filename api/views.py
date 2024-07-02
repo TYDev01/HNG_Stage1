@@ -23,7 +23,7 @@ def newVisitor(request):
         client_city = get_client_ip.json().get("city")
     except requests.RequestException:
         client_ip = "127.0.0.1" #Falls back default ip
-        client_city = "Unknown"
+        client_city = get_client_ip.json().get("city")
 
     try:
         weather_response = requests.get(f'http://api.openweathermap.org/data/2.5/weather?q={client_city}&appid={WEATHER_API}&units=metric')
