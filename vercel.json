@@ -11,11 +11,5 @@
       "src": "/(.*)",
       "dest": "server/wsgi.py"
     }
-  ],
-  "env": {
-    "DJANGO_SETTINGS_MODULE": "server.settings",
-    "SECRET_KEY": "@secret_key",
-    "DEBUG": "False",
-    "DATABASE_URL": "@database_url"
-  }
+  ]
 }
