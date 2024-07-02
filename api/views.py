@@ -20,13 +20,9 @@ def newVisitor(request):
         # client_ip = get_client_ip.json().get("ip")
         get_client_ip = requests.get('https://ipinfo.io')
         client_ip = get_client_ip.json().get("ip")
+        client_city = get_client_ip.json().get("city")
     except requests.RequestException:
         client_ip = "127.0.0.1" #Falls back default ip
-
-    try:
-        # ipgeo_response = requests.get(f"https://api.ipgeolocation.io/ipgeo?apiKey={API_KEY}&ip={client_ip}")
-        client_city = get_client_ip.json().get('city')
-    except requests.RequestException:
         client_city = "Unknown"
 
     try:
