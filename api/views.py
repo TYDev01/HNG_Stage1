@@ -10,7 +10,7 @@ load_dotenv()
 
 @api_view(['GET'])
 def newVisitor(request):
-    API_KEY = os.getenv("API_KEY")
+    # API_KEY = os.getenv("API_KEY")
     WEATHER_API = os.getenv("WEATHER_API")
     visitName = request.query_params.get('visitor_name', 'usersname')
 
@@ -24,8 +24,8 @@ def newVisitor(request):
         client_ip = "127.0.0.1" #Falls back default ip
 
     try:
-        ipgeo_response = requests.get(f"https://api.ipgeolocation.io/ipgeo?apiKey={API_KEY}&ip={client_ip}")
-        client_city = ipgeo_response.json().get('city')
+        # ipgeo_response = requests.get(f"https://api.ipgeolocation.io/ipgeo?apiKey={API_KEY}&ip={client_ip}")
+        client_city = get_client_ip.json().get('city')
     except requests.RequestException:
         client_city = "Unknown"
 
